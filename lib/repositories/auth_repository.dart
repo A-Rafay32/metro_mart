@@ -1,16 +1,18 @@
 import 'package:either_dart/either.dart';
 import 'package:metro_mart/app/constants/apis_urls.dart';
+import 'package:metro_mart/core/exceptions/exceptions.dart';
 import 'package:metro_mart/core/services/http_service.dart';
 import 'package:metro_mart/core/utils/types.dart';
 import 'package:metro_mart/features/auth/models/user.dart';
 
 class AuthRepository {
+  
   FutureEither1<User> signIn(
       {required String email, required String password}) async {
     try {
       dynamic response = await HttpService().post(AuthApi.signIn,
           requestBody: {"email": email, "password": password});
-      return Right(User.fromMap(response as Map));
+      return Right(User.fromMap(response as Map<String, dynamic>));
     } catch (e) {
       return Left(Failure(message: e.toString()));
     }

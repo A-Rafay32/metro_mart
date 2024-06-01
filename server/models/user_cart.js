@@ -7,12 +7,10 @@ const userCartSchema = new Schema({
     required: true,
     default: 0,
   },
-  products: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: "Product",
-    },
-  ],
+  products: {
+    type: Array,
+    required: true,
+  },
 });
 
 const UserCart = mongoose.model("UserCart", userCartSchema);

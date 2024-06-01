@@ -5,7 +5,7 @@ import 'dart:io';
 import 'package:http/http.dart' as http;
 import 'package:metro_mart/app/constants/apis_urls.dart';
 import 'package:metro_mart/app/constants/http_codes.dart';
-import 'package:metro_mart/providers/auth_provider.dart';
+import 'package:metro_mart/features/auth/providers/auth_provider.dart';
 import 'package:metro_mart/core/exceptions/http_exceptions.dart';
 
 class HttpService {
